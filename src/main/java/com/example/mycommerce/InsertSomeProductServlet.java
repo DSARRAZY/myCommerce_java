@@ -19,9 +19,15 @@ public class InsertSomeProductServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         MyProduct product = new MyProduct();
         product.setName("Montre");
-        product.setContent("belle montre");
+        product.setContent("swatch");
         product.setPrice(150F);
         MyProductDao.addProduct(product);
+
+        MyProduct product2 = new MyProduct();
+        product2.setName("Bracelet");
+        product2.setContent("or 18 carats");
+        product2.setPrice(200F);
+        MyProductDao.addProduct(product2);
 
         resp.sendRedirect( req.getContextPath() + "/listProduct");
     }
