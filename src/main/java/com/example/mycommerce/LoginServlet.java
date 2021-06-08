@@ -15,11 +15,16 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         HttpSession session = req.getSession();
         session.setAttribute("user", req.getParameter("name"));
         RequestDispatcher rd = req.getRequestDispatcher("/auth/basicInsert");
         rd.forward(req, resp);
+    }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd =
+                req.getRequestDispatcher("/WEB-INF/login.jsp");
+        rd.forward(req, resp);
     }
 }

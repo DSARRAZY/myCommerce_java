@@ -19,7 +19,8 @@ public class AuthenticateFilter implements Filter {
         if (sc.getAttribute("user") != null) {
             filterChain.doFilter(req, resp);
         } else {
-            response.sendRedirect(request.getContextPath()+"logih.html");
+            //response.sendRedirect(request.getContextPath()+"logih.html");
+            response.sendRedirect("/login");
         }
     }
 }

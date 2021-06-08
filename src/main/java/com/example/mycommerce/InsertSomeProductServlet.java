@@ -1,5 +1,6 @@
 package com.example.mycommerce;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,5 +22,8 @@ public class InsertSomeProductServlet extends HttpServlet {
         product.setContent("belle montre");
         product.setPrice(150F);
         MyProductDao.addProduct(product);
+
+        resp.sendRedirect( req.getContextPath() + "/listProduct");
     }
+
 }
