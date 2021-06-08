@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import com.example.mycommerce.MyProduct;
@@ -18,5 +19,8 @@ public class InsertSomeProductServlet extends HttpServlet {
         product.setContent("belle montre");
         product.setPrice(150F);
         MyProductDao.addProduct(product);
+
+        HttpSession session = req.getSession();
+        resp.getWriter().println(session.getAttribute("user"));
     }
 }

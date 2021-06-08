@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         session.setAttribute("user", req.getParameter("name"));
-        RequestDispatcher rd = req.getRequestDispatcher("/web-app/login.html");
+        RequestDispatcher rd = req.getRequestDispatcher("/auth/basicInsert");
         rd.forward(req, resp);
 
     }
