@@ -9,5 +9,10 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+
+<a href="login.html">Se connecter</a>
+
+<p>"/listProduct" pour voir la liste des articles ajoutés</p>
+
 </body>
 </html>
