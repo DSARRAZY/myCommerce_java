@@ -16,7 +16,5 @@
 <a href="loginSubmit">Se connecter</a>
 <br>
 
-<p>"/listProduct" pour voir la liste des articles ajoutés</p>
-
 </body>
 </html>

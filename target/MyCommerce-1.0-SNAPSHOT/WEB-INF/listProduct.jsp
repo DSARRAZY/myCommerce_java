@@ -21,6 +21,9 @@
             <td><c:out value="${t.name}" /></td>
             <td><c:out value="${t.content}" /></td>
             <td><c:out value="${t.price}" /></td>
+            <td>
+                    <a href="${pageContext.request.contextPath}/show-product?id=${t.id}">Voir</a>
+            </td>
         </tr>
     </c:forEach>
 </table>
