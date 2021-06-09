@@ -11,7 +11,7 @@
         prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Notre service</title>
 </head>
 <body>
 
