@@ -25,7 +25,7 @@
     <label for="price"> price :</label>
     <input type="number" min="0.0" name="price" id="price">
 
-    <input type="submit" value="Add">
+    <input type="submit" value="Ajouter">
 </form>
 
 </body>

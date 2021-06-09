@@ -20,5 +20,8 @@
 <a href="<c:url value="/logout" />">Se déconnecter</a>
 <a href="<c:url value="/login" />">Se connecter</a>
 
+<H1>Bonjour ! </H1>
+<h2><%= new java.util.Date() %></h2>
+
 </body>
 </html>

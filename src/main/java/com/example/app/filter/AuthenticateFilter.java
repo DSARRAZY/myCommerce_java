@@ -16,7 +16,7 @@ public class AuthenticateFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
 
         HttpSession sc = request.getSession();
-        if (sc.getAttribute("user") != null) {
+        if (sc.getAttribute("name") == null) {
             response.sendRedirect( (request.getContextPath() + "/login"));
 
         } else {
