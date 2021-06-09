@@ -14,7 +14,7 @@
     <title>One product</title>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/header.jsp" %>
 <p>${product.name}</p>
 <p>${product.content}</p>
 <p>${product.price}</p>

@@ -14,7 +14,7 @@
     <title>Liste des produits</title>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/header.jsp" %>
 <table>
     <c:forEach items="${products}" var="t">
         <tr>

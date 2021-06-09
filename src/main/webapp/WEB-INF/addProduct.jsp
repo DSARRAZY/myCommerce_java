@@ -14,7 +14,7 @@
     <title> Ajouter un produit</title>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/header.jsp" %>
 <form action="<c:url value="/auth/addProduct" />" method="post">
     <label for="name">Product name :</label>
     <input type="text" name="name" id="name">
@@ -25,7 +25,7 @@
     <label for="price"> price :</label>
     <input type="number" min="0.0" name="price" id="price">
 
-    <input type="submit" value="Add">
+    <input type="submit" value="Ajouter">
 </form>
 
 </body>

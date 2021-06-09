@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: dsarrazy
-  Date: 08/06/2021
-  Time: 16:13
+  Date: 09/06/2021
+  Time: 13:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,13 +11,9 @@
         prefix="c" %>
 <html>
 <head>
-    <title>One product</title>
+    <title>Title</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/header.jsp" %>
-<p>${product.name}</p>
-<p>${product.content}</p>
-<p>${product.price}</p>
 
 </body>
 </html>
