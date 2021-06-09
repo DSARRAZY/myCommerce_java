@@ -17,10 +17,10 @@ public class AuthenticateFilter implements Filter {
 
         HttpSession sc = request.getSession();
         if (sc.getAttribute("user") != null) {
-            filterChain.doFilter(req, resp);
+            response.sendRedirect( (request.getContextPath() + "/login"));
+
         } else {
-            //response.sendRedirect(request.getContextPath()+"logih.html");
-            response.sendRedirect("/login");
+            filterChain.doFilter(req, resp);
         }
     }
 }

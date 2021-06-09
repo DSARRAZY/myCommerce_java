@@ -10,15 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/loginSubmit")
+@WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String utilisateur = req.getParameter("name");
+
         HttpSession session = req.getSession();
-        session.setAttribute("user", req.getParameter("name"));
-        RequestDispatcher rd = req.getRequestDispatcher("/auth/basicInsert");
-        rd.forward(req, resp);
+        session.setAttribute("name",utilisateur);
+        resp.sendRedirect( req.getContextPath() + "/auth/addProduct");
     }
 
     @Override

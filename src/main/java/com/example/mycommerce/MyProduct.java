@@ -17,6 +17,9 @@ public class MyProduct implements Serializable {
     public MyProduct() {
     }
 
+    public MyProduct(String name, Float price, String content) {
+    }
+
     public Long getId() {
         return this.id;
     }

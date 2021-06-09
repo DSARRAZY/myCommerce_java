@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form method="post" action="loginSubmit">
+<form method="post" action="login">
   <p>
     <label for="name">Nom : </label>
     <input type="text" name="name" id="name" />

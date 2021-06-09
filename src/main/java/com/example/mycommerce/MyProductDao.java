@@ -4,8 +4,6 @@ package com.example.mycommerce;
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompile
 
-import com.example.mycommerce.MyProduct;
-import com.example.mycommerce.UnknownProductException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,11 +15,12 @@ public class MyProductDao {
     private MyProductDao() {
     }
 
-    public static void addProduct(MyProduct product) {
+    public static Long addProduct(MyProduct product) {
         Long var1 = idSequence;
         idSequence = idSequence + 1L;
         product.setId(var1);
         products.add(product);
+        return var1;
     }
 
     public static void updateProduct(MyProduct product) {

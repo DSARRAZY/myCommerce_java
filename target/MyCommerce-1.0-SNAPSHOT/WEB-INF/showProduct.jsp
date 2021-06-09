@@ -19,6 +19,5 @@
 <p>${product.content}</p>
 <p>${product.price}</p>
 
-
 </body>
 </html>

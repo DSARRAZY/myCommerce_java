@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/listProduct")
+@WebServlet(urlPatterns = "/auth/listProduct")
 public class ListProductServlet extends HttpServlet {
 
 //    @Override

@@ -5,15 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>JSP - MyCommerce</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Welcome on MyCommerce!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
-<br>
-<a href="loginSubmit">Se connecter</a>
+<a href="login">Se connecter</a>
 <br>
 
 </body>
