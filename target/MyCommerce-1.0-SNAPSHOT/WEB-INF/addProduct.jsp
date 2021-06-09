@@ -27,6 +27,6 @@
 
     <input type="submit" value="Ajouter">
 </form>
-
+<%@ include file="/WEB-INF/footer.jsp" %>
 </body>
 </html>

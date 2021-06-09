@@ -18,6 +18,6 @@
 <p>${product.name}</p>
 <p>${product.content}</p>
 <p>${product.price}</p>
-
+<%@ include file="/WEB-INF/footer.jsp" %>
 </body>
 </html>
