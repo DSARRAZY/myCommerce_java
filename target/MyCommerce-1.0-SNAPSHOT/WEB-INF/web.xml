@@ -6,7 +6,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>MyServlet</servlet-name>-->
-<!--        <servlet-class>com.example.mycommerce.MyServlet</servlet-class>-->
+<!--        <servlet-class>com.example.servlet.MyServlet</servlet-class>-->
 <!--    </servlet>-->
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>MyServlet</servlet-name>-->
@@ -15,7 +15,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>InsertSomeProductServlet</servlet-name>-->
-<!--        <servlet-class>com.example.mycommerce.InsertSomeProductServlet</servlet-class>-->
+<!--        <servlet-class>com.example.servlet.InsertSomeProductServlet</servlet-class>-->
 <!--    </servlet>-->
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>InsertSomeProductServlet</servlet-name>-->
@@ -24,7 +24,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>ListProductServlet</servlet-name>-->
-<!--        <servlet-class>com.example.mycommerce.ListProductServlet</servlet-class>-->
+<!--        <servlet-class>com.example.servlet.ListProductServlet</servlet-class>-->
 <!--    </servlet>-->
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>ListProductServlet</servlet-name>-->
@@ -33,7 +33,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>LoginServlet</servlet-name>-->
-<!--        <servlet-class>com.example.mycommerce.LoginServlet</servlet-class>-->
+<!--        <servlet-class>com.example.servlet.LoginServlet</servlet-class>-->
 <!--    </servlet>-->
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>LoginServlet</servlet-name>-->

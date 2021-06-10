@@ -15,10 +15,15 @@
 </head>
 <body>
 
-<a href="<c:url value="/auth/listProduct" />"> Liste des produits </a>
-<a href="<c:url value="/auth/addProduct" />">Ajouter un produit </a>
-<a href="<c:url value="/logout" />">Se déconnecter</a>
-<a href="<c:url value="/login" />">Se connecter</a>
+<c:if test="${! empty sessionScope.name}">
+    <a href="<c:url value="/auth/listProduct" />"> Liste des produits </a>
+    <a href="<c:url value="/auth/addProduct" />">Ajouter un produit </a>
+    <a href="<c:url value="/logout" />">Se déconnecter</a>
+</c:if>
+
+<c:if test="${empty sessionScope.name}">
+    <a href="<c:url value="/login" />">Se connecter</a>
+</c:if>
 
 <H1>Bonjour ! </H1>
 <h2><%= new java.util.Date() %></h2>
