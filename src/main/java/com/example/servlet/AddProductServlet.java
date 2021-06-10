@@ -1,5 +1,6 @@
 package com.example.servlet;
 
+import com.example.dao.DaoFactory;
 import com.example.model.MyProduct;
 import com.example.dao.MyProductDao;
 
@@ -32,7 +33,7 @@ public class AddProductServlet extends HttpServlet {
         }catch (Exception e){}
 
         nproduct.setPrice(lprice);
-        MyProductDao.addProduct(nproduct);
+        DaoFactory.getMyProductDao().create(nproduct);
         resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
 
     }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.example.dao.DaoFactory;
 import com.example.dao.MyProductDao;
 import com.example.model.MyProduct;
 
@@ -19,13 +20,13 @@ public class InsertSomeProductServlet extends HttpServlet {
         product.setName("Montre");
         product.setContent("swatch");
         product.setPrice(150F);
-        MyProductDao.addProduct(product);
+        DaoFactory.getMyProductDao().create(product);
 
         MyProduct product2 = new MyProduct();
         product2.setName("Bracelet");
         product2.setContent("or 18 carats");
         product2.setPrice(200F);
-        MyProductDao.addProduct(product2);
+        DaoFactory.getMyProductDao().create(product);
 
         resp.sendRedirect( req.getContextPath() + "/listProduct");
     }

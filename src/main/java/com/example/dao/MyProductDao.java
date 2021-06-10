@@ -1,76 +1,21 @@
 package com.example.dao;
 
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompile
-
 import com.example.model.MyProduct;
-import com.example.dao.exception.UnknownProductException;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class MyProductDao {
-    private static List<MyProduct> products = new ArrayList();
-    private static Long idSequence = 1L;
+public interface MyProductDao {
 
-    private MyProductDao() {
-    }
+        boolean create(MyProduct product);
 
-    public static Long addProduct(MyProduct product) {
-        Long var1 = idSequence;
-        idSequence = idSequence + 1L;
-        product.setId(var1);
-        products.add(product);
-        return var1;
-    }
+        void update(MyProduct product);
 
-    public static void updateProduct(MyProduct product) {
-        int index = getProductIndexById(product.getId());
-        if (index > -1) {
-            products.set(index, product);
-        } else {
-            throw new UnknownProductException(product.getId());
-        }
-    }
+        MyProduct findById(Long id);
 
-    public static MyProduct findProductById(Long id) {
-        int index = getProductIndexById(id);
-        if (index > -1) {
-            MyProduct product = (MyProduct)products.get(index);
-            return product;
-        } else {
-            throw new UnknownProductException(id);
-        }
-    }
+        List<MyProduct> findAll();
 
-    public static List<MyProduct> getAllProducts() {
-        return Collections.unmodifiableList(products);
-    }
+        void remove(MyProduct product);
 
-    public static void removeProduct(MyProduct product) {
-        removeProduct(product.getId());
-    }
+        void removeById(Long id);
 
-    public static void removeProduct(Long id) {
-        int index = getProductIndexById(id);
-        if (index > -1) {
-            products.remove(index);
-        } else {
-            throw new UnknownProductException(id);
-        }
-    }
-
-    private static int getProductIndexById(Long id) {
-        for(int i = 0; i < products.size(); ++i) {
-            MyProduct product = (MyProduct)products.get(i);
-            if (product.getId().equals(id)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
 }
 

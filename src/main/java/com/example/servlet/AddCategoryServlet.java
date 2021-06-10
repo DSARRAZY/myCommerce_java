@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,27 +17,20 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/auth/addCategorie")
 public class AddCategoryServlet extends HttpServlet {
 
+    EntityManagerFactory emf = null;
+
+
     @Override
     public void init() throws ServletException {
 
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("My-PU");
-        EntityManager entityManager = emfactory.createEntityManager();
-        entityManager.getTransaction( ).begin( );
+        emf = Persistence.createEntityManagerFactory("PU");
 
-        Category category= em.find(Category.class, 1);
-
-        entityManager.persist(category);
-        entityManager.getTransaction( ).commit( );
-
-        entityManager.close( );
-        emfactory.close( );
     }
 
-    @Override
-    public void destroy() {
-        Process em = null;
-        em.destroy();
-    }
+//    @Override
+//    //public void destroy() {
+//       // emf.close();
+//    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,8 +41,7 @@ public class AddCategoryServlet extends HttpServlet {
         EntityTransaction et = em.getTransaction();
         et.begin();
         try {
-            Category category = em.find(Category.class, 1);
-            em.remove(category);
+            em.persist(category);
             et.commit();
         } catch (RuntimeException re) {
             if (et.isActive())
@@ -59,9 +50,7 @@ public class AddCategoryServlet extends HttpServlet {
             em.close();
         }
 
-
         resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
-
 
     }
 
@@ -71,3 +60,5 @@ public class AddCategoryServlet extends HttpServlet {
         rd.forward(req, resp);
     }
 }
+
+

@@ -1,5 +1,6 @@
 package com.example.servlet;
 
+import com.example.dao.DaoFactory;
 import com.example.dao.MyProductDao;
 import com.example.model.MyProduct;
 
@@ -18,7 +19,7 @@ public class ShowProductServlet extends HttpServlet {
         String idStr = req.getParameter("id");
         Long id = Long.valueOf(idStr);
 
-        MyProduct products = MyProductDao.findProductById(id);
+        MyProduct products = DaoFactory.getMyProductDao().findById(id);
         req.setAttribute("product", products);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/showProduct.jsp");
         rd.forward(req, resp);
