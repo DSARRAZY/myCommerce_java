@@ -25,6 +25,13 @@
     <label for="price"> price :</label>
     <input type="number" min="0.0" name="price" id="price">
 
+    <label for="ListCategory"> Choisir une catégorie :</label>
+    <select id="ListCategory" name="ListCategory">
+        <c:forEach items="${category}" var="item">
+            <option value="${item.id}">${item.name}</option>
+        </c:forEach>"
+    </select>
+
     <input type="submit" value="Ajouter">
 </form>
 <%@ include file="/WEB-INF/footer.jsp" %>

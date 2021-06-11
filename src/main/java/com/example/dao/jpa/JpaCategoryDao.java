@@ -43,5 +43,30 @@ public class JpaCategoryDao implements CategoryDao {
         return true;
     }
 
+
+    @Override
+    public Category findById(Long id) {
+        EntityManager em = this.emf.createEntityManager();
+        return em.find(Category.class,id);
+        }
+
+
+
+
+    @Override
+    public void update(Category category) {
+
+    }
+
+
+    @Override
+    public void remove(Category category) {
+
+    }
+
+    @Override
+    public void removeById(Long id) {
+
+    }
 }
 

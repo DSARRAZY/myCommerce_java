@@ -13,6 +13,26 @@ public class JdbcCategoryDao implements CategoryDao {
     }
 
     @Override
+    public void update(Category category) {
+
+    }
+
+    @Override
+    public Category findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public void remove(Category category) {
+
+    }
+
+    @Override
+    public void removeById(Long id) {
+
+    }
+
+    @Override
     public boolean create (Category category) {
         return false;
     }

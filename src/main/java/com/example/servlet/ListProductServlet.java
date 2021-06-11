@@ -17,11 +17,6 @@ import java.util.List;
 @WebServlet(urlPatterns = "/auth/listProduct")
 public class ListProductServlet extends HttpServlet {
 
-//    @Override
-//    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//    }
-
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> products = DaoFactory.getProductDao().findAll();
         req.setAttribute("products", products);

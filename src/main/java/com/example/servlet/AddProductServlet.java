@@ -3,6 +3,7 @@ package com.example.servlet;
 import com.example.dao.CategoryDao;
 import com.example.dao.DaoFactory;
 import com.example.dao.ProductDao;
+import com.example.entity.Category;
 import com.example.entity.Product;
 
 import javax.persistence.EntityManager;
@@ -35,12 +36,21 @@ public class AddProductServlet extends HttpServlet {
         ProductDao productDao = DaoFactory.getProductDao();
         productDao.create(product);
 
+        String ncategory = req.getParameter("ListCategory");
+        Long ncategory2 = Long.parseLong(ncategory);
+
+        CategoryDao productDao1  = DaoFactory.getCategoryDao();
+        Category findCategory = productDao1.findById(ncategory2);
+        findCategory.getProducts().add(product);
+
         resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
 
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("category",DaoFactory.getCategoryDao().findAll());
+
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/addProduct.jsp");
         rd.forward(req, resp);
     }
