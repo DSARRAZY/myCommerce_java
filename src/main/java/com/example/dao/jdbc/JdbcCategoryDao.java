@@ -11,4 +11,10 @@ public class JdbcCategoryDao implements CategoryDao {
     public List<Category>findAll() {
         return null;
     }
+
+    @Override
+    public boolean create (Category category) {
+        return false;
+    }
+
 }

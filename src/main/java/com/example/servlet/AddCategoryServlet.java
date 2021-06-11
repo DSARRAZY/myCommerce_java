@@ -1,5 +1,7 @@
 package com.example.servlet;
 
+import com.example.dao.CategoryDao;
+import com.example.dao.DaoFactory;
 import com.example.entity.Category;
 
 import javax.persistence.EntityManager;
@@ -17,38 +19,12 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/auth/addCategory")
 public class AddCategoryServlet extends HttpServlet {
 
-    EntityManagerFactory emf = null;
-
-
-    @Override
-    public void init() throws ServletException {
-
-        emf = Persistence.createEntityManagerFactory("PU");
-
-    }
-
-//    @Override
-//    //public void destroy() {
-//       // emf.close();
-//    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Category category= new Category();
         category.setName(req.getParameter("name"));
-
-        EntityManager em = this.emf.createEntityManager();
-        EntityTransaction et = em.getTransaction();
-        et.begin();
-        try {
-            em.persist(category);
-            et.commit();
-        } catch (RuntimeException re) {
-            if (et.isActive())
-                et.rollback();
-        }finally {
-            em.close();
-        }
+        CategoryDao categoryDao = DaoFactory.getCategoryDao();
+        categoryDao.create(category);
 
         resp.sendRedirect( req.getContextPath() + "/auth/listCategory");
 

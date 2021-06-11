@@ -3,7 +3,7 @@ package com.example.dao.jpa;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class PersistenceManager {
+public final class PersistenceManager {
 
     private static final String EMF_KEY = "PU";
 
@@ -12,6 +12,14 @@ public class PersistenceManager {
 
     private PersistenceManager() {
         // Avoid instantiate
+    }
+
+    // Lazy initialization
+    public static EntityManagerFactory getEntityManagerFactory(){
+        if(emf == null){
+            emf = Persistence.createEntityManagerFactory("My-PU");
+        }
+        return emf;
     }
 
     public static EntityManagerFactory getConnection() {

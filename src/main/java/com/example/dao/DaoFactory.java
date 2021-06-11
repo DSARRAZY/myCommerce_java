@@ -2,6 +2,7 @@ package com.example.dao;
 
 import com.example.dao.jpa.JpaCategoryDao;
 import com.example.dao.jpa.JpaMyProductDao;
+import com.example.dao.jpa.JpaProductDao;
 import com.example.dao.jpa.PersistenceManager;
 
 public final class DaoFactory {
@@ -20,4 +21,11 @@ public final class DaoFactory {
         return new JpaCategoryDao(PersistenceManager.getConnection());
 
     }
+
+    public static ProductDao getProductDao() {
+
+        return new JpaProductDao(PersistenceManager.getConnection());
+
+    }
+
 }

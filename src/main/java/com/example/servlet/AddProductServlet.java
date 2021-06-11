@@ -1,9 +1,14 @@
 package com.example.servlet;
 
+import com.example.dao.CategoryDao;
 import com.example.dao.DaoFactory;
-import com.example.model.MyProduct;
-import com.example.dao.MyProductDao;
+import com.example.dao.ProductDao;
+import com.example.entity.Product;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,25 +21,50 @@ import java.io.IOException;
 public class AddProductServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/addProduct.jsp");
-        rd.forward(req, resp);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MyProduct nproduct = new MyProduct();
-        nproduct.setName(req.getParameter("name"));
-        nproduct.setContent(req.getParameter("Content"));
+        Product product = new Product();
+        product.setName(req.getParameter("name"));
+        product.setContent(req.getParameter("content"));
         String nprice = req.getParameter("price");
         Float lprice =0f;
         try{
             lprice = Float.parseFloat(nprice);
         }catch (Exception e){}
+        product.setPrice(lprice);
 
-        nproduct.setPrice(lprice);
-        DaoFactory.getMyProductDao().create(nproduct);
+        ProductDao productDao = DaoFactory.getProductDao();
+        productDao.create(product);
+
         resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
 
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/addProduct.jsp");
+        rd.forward(req, resp);
+    }
+
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/addProduct.jsp");
+//        rd.forward(req, resp);
+//    }
+//
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        MyProduct nproduct = new MyProduct();
+//        nproduct.setName(req.getParameter("name"));
+//        nproduct.setContent(req.getParameter("Content"));
+//        String nprice = req.getParameter("price");
+//        Float lprice =0f;
+//        try{
+//            lprice = Float.parseFloat(nprice);
+//        }catch (Exception e){}
+//
+//        nproduct.setPrice(lprice);
+//        DaoFactory.getMyProductDao().create(nproduct);
+//        resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
+//
+//    }
 }

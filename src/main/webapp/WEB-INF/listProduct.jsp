@@ -22,8 +22,8 @@
             <td><c:out value="${t.content}" /></td>
             <td><c:out value="${t.price}" /></td>
             <td>
-                    <a href="${pageContext.request.contextPath}/auth/show-product?id=${t.id}">Voir</a>
-                    <a href="${pageContext.request.contextPath}/auth/removeProduct?id=${t.id}">Supprimer</a>
+<%--                    <a href="${pageContext.request.contextPath}/auth/show-product?id=${t.id}">Voir</a>--%>
+<%--                    <a href="${pageContext.request.contextPath}/auth/removeProduct?id=${t.id}">Supprimer</a>--%>
             </td>
         </tr>
     </c:forEach>

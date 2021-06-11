@@ -2,6 +2,7 @@ package com.example.servlet;
 
 import com.example.dao.DaoFactory;
 import com.example.dao.MyProductDao;
+import com.example.entity.Product;
 import com.example.model.MyProduct;
 
 import javax.servlet.RequestDispatcher;
@@ -22,7 +23,7 @@ public class ListProductServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<MyProduct> products = DaoFactory.getMyProductDao().findAll();
+        List<Product> products = DaoFactory.getProductDao().findAll();
         req.setAttribute("products", products);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/listProduct.jsp");
         rd.forward(req, resp);
