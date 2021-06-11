@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import com.example.dao.jpa.JpaCategoryDao;
 import com.example.dao.jpa.JpaMyProductDao;
 import com.example.dao.jpa.PersistenceManager;
 
@@ -14,4 +15,9 @@ public final class DaoFactory {
 
     }
 
+    public static CategoryDao getCategoryDao() {
+
+        return new JpaCategoryDao(PersistenceManager.getConnection());
+
+    }
 }

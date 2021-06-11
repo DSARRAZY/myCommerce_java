@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/auth/addCategorie")
+@WebServlet(urlPatterns = "/auth/addCategory")
 public class AddCategoryServlet extends HttpServlet {
 
     EntityManagerFactory emf = null;
@@ -50,7 +50,7 @@ public class AddCategoryServlet extends HttpServlet {
             em.close();
         }
 
-        resp.sendRedirect( req.getContextPath() + "/auth/listProduct");
+        resp.sendRedirect( req.getContextPath() + "/auth/listCategory");
 
     }
 

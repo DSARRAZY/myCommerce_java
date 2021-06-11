@@ -12,7 +12,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/header.jsp" %>
-<form action="<c:url value="/auth/addCategorie" />" method="post">
+<form action="<c:url value="/auth/addCategory" />" method="post">
     <label for="name">Category name :</label>
     <input type="text" name="name" id="name">
 

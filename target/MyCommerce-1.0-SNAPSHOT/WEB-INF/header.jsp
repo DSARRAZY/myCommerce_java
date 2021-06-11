@@ -18,6 +18,8 @@
 <c:if test="${! empty sessionScope.name}">
     <a href="<c:url value="/auth/listProduct" />"> Liste des produits </a>
     <a href="<c:url value="/auth/addProduct" />">Ajouter un produit </a>
+    <a href="<c:url value="/auth/addCategory" />">Ajouter une catégorie </a>
+    <a href="<c:url value="/auth/listCategory" />">Liste des catégories </a>
     <a href="<c:url value="/logout" />">Se déconnecter</a>
 </c:if>
 
